@@ -10,3 +10,8 @@ services:
             - "8000:80"
         volumes: 
             - .:/var/www
+    
+    redis:
+        image: redis:alpine
+        expose:
+            - 6379
