@@ -1,5 +1,10 @@
 FROM php:7.3.6-fpm-alpine3.9
 
-EXPOSE 9000
+WORKDIR /var/www
+RUN rm -rf /var/www/html
 
+COPY . .
+RUN ln -s public html
+
+EXPOSE 9000
 ENTRYPOINT [ "php-fpm" ]
