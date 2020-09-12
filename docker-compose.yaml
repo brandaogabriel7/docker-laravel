@@ -7,6 +7,8 @@ services:
         container_name: app
         volumes:
             - .:/var/www
+        networks:
+            - app-network
 
     nginx:
         build: .docker/nginx
@@ -17,8 +19,16 @@ services:
             - "8000:80" 
         volumes: 
             - .:/var/www
+        networks:
+            - app-network
     
     redis:
         image: redis:alpine
         expose:
             - 6379
+        networks:
+            - app-network
+
+networks:
+    app-network:
+        driver: bridge
