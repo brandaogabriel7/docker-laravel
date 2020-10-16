@@ -45,8 +45,8 @@ services:
     tty: true
     ports:
       - "3306:3306"
-    volumes:
-      - ./.docker/dbdata:/var/lib/mysql
+    # volumes:
+    #   - ./.docker/dbdata:/var/lib/mysql
     environment:
       - MYSQL_DATABASE=laravel
       - MYSQL_USER=root
