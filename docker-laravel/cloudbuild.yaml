@@ -9,14 +9,13 @@ steps:
   name: 'gcr.io/cloud-builders/docker'
   args: ['ps']
 
+  - id: "Chown in /var/www"
+    name: 'gcr.io/cloud-builders/docker'
+    args: ['exec', '-u', 'root', '-t', 'app', 'chown', '-R', 'www-data:www-data', '/var/www']
 
 - id: "Rodando composer"
   name: 'gcr.io/cloud-builders/docker'
-  args: ['exec', '-t', '-u', 'www-data', 'app', 'composer', 'install']
-
-- id: "Chown in /var/www"
-  name: 'gcr.io/cloud-builders/docker'
-  args: ['exec', '-u', 'root', '-t', 'app', 'chown', '-R', 'www-data:www-data', '/var/www']
+  args: ['exec', '-t', 'app', 'composer', 'install']
 
 - id: "Copiando .env"
   name: 'gcr.io/cloud-builders/docker'
