@@ -18,5 +18,6 @@ RUN chown -R www-data:www-data /var/www
 RUN ln -s public html
 
 EXPOSE 9000
+USER root
 
 ENTRYPOINT [ "php-fpm" ]
