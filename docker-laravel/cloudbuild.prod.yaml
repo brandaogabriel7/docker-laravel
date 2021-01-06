@@ -50,7 +50,7 @@ steps:
   args:
     - 'apply'
     - '-f'
-    - 'docker-laravel/k8s/deployment-new.yaml'
+    - 'docker-laravel/k8s/app/deployment-new.yaml'
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-c'
   - 'CLOUDSDK_CONTAINER_CLUSTER=cluster-docker-laravel'
